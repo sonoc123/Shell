@@ -52,38 +52,6 @@ header("Location:$url");
 exit;
 }
 ?>
-<?php
-$FileDir="processed"; 
-$FileDir2="newticket"; 
-$FileDir3="planning"; 
-$FileNum1=count(glob("$FileDir/*.*"));
-$FileNum2=count(glob("$FileDir2/*.*"));
-$nFileNum=($FileNum1+$FileNum2);
-//
-$FileDir="closedticket"; 
-$cFileNum=count(glob("$FileDir/*.*"));
-//
-$FileDir="allticket"; 
-$aFileNum=count(glob("$FileDir/*.*"));
-//
-$FileDir="planning"; 
-$pFileNum=count(glob("$FileDir/*.*"));
-?>
-
-<form method="GET" action="">
-<b><table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="95%">
-<tr>
-<td width="50%">
-<font size="2">Total ticket :<?php echo $aFileNum; ?></font>&nbsp;&nbsp;
-<font size="2">New ticket :<?php echo $nFileNum; ?></font>&nbsp;&nbsp;
-<font size="2">Planning ticket :<?php echo $pFileNum; ?></font>&nbsp;&nbsp;
-<font size="2">Closed ticket :<?php echo $cFileNum; ?></font>&nbsp;&nbsp;
-<td width="50%" ><p align="right">
-<!-- <input type="submit" name="functionmode" value="function_1" style="width:80;height:30; font-size:8 pt"> -->
-</td>
-</tr>
-</table>
-</form>
 
 <table id="tblSplitLine" class="clsSplitLine" width="100%" cellspacing="0px" cellpadding="0px"><tbody><tr>
 <td width="50px"><hr></td>

@@ -74,10 +74,42 @@ a {
 
 <P><ul id="button">
       <li><a href="main.php">Home</a></li>
-	  <li><a href="closedticket.php">Closed Ticket</a></li>
+      <li><a href="closedticket.php">Closed Ticket</a></li>
       <li><a href="allticket.php">All Ticket</a></li>
+      <li><a href="mobile.php">Mobile</a></li>
 </ul></P>
 </b>
+<?php
+$FileDir="processed"; 
+$FileDir2="newticket"; 
+$FileDir3="planning"; 
+$FileNum1=count(glob("$FileDir/*.*"));
+$FileNum2=count(glob("$FileDir2/*.*"));
+$nFileNum=($FileNum1+$FileNum2);
+//
+$FileDir="closedticket"; 
+$cFileNum=count(glob("$FileDir/*.*"));
+//
+$FileDir="allticket"; 
+$aFileNum=count(glob("$FileDir/*.*"));
+//
+$FileDir="planning"; 
+$pFileNum=count(glob("$FileDir/*.*"));
+?>
+
+<form method="GET" action="">
+<b><table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="95%">
+<tr>
+<td width="50%">
+<font size="2">Total ticket :<?php echo $aFileNum; ?></font>&nbsp;&nbsp;
+<font size="2">New ticket :<?php echo $nFileNum; ?></font>&nbsp;&nbsp;
+<font size="2">Planning ticket :<?php echo $pFileNum; ?></font>&nbsp;&nbsp;
+<font size="2">Closed ticket :<?php echo $cFileNum; ?></font>&nbsp;&nbsp;
+<td width="50%" ><p align="right">
+<p>New Ticket自動匯入功能測試中</p>
+</td></tr></table>
+</form>
+    
 </head>
 <body>
 </body>

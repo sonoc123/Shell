@@ -6,6 +6,7 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 
 //Create ticket
+$Getfrompage = $_GET[frompage];
 $Getlocalid = $_GET[localid];
 $GetCompleted = $_GET[Completed];
 $Getdeletecall = $_GET[deletecall];
@@ -123,6 +124,10 @@ Startset:
 while($k<=10) {
 $file=scandir('./exportfile');
 if (empty($file[2])) {
+if ($Getfrompage == 101){
+header("Location:mobile.php");
+exit;
+}
 header("refresh:0.3;url=main.php");
 #include_once "main.php";
 #$url = "main.php";  
