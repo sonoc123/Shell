@@ -45,7 +45,7 @@ include ("./allticket/".$GetCompleted."_Ticket.php");
    <span class="error">* <?php echo $nameErr;?></span>
    <br>
    <p>Site Signatory Name：<input type="text" size="10" name="name">
-   <span class="error">*中文ok <?php echo $nameErr;?></span>
+   <span class="error">* <?php echo $nameErr;?></span>
    <br>
    <p>Status：
    <input type="radio" name="status" checked="checked" value="Completed">Completed
