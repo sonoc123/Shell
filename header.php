@@ -55,6 +55,17 @@ a {
 </style>
 <body bgcolor="#F6F6F6">
 <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var ismobile=navigator.userAgent.match(/J2ME|Opera Mini|SonyEricsson|Nokia|iPhone|iPod|BB10|PlayBook|android|webOS|BlackBerry|Windows Phone|Windows CE/i) != null;
+if (ismobile) {
+var redirect = confirm('是否要轉到手機版網頁？');
+if (redirect)
+window.location = 'mobile.php';
+}
+});
+</script>
 </head>
 
 
@@ -106,7 +117,7 @@ $pFileNum=count(glob("$FileDir/*.*"));
 <font size="2">Planning ticket :<?php echo $pFileNum; ?></font>&nbsp;&nbsp;
 <font size="2">Closed ticket :<?php echo $cFileNum; ?></font>&nbsp;&nbsp;
 <td width="50%" ><p align="right">
-<p>New Ticket自動匯入功能測試中</p>
+<!-- <p></p> -->
 </td></tr></table>
 </form>
     

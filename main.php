@@ -1,11 +1,10 @@
 <html>
 <head>
-<meta http-equiv="Content-Language" content="zh-cn">
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Language" content="zh-tw">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta http-equiv="refresh" content="30;url='main.php'" />
 <title>Shell</title>
+
 <?php
 include ("header.php");
 

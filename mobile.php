@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Language" content="zh-tw">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 <title>Shell-Mobile</title>
@@ -17,7 +17,7 @@ var atc = {
 
 if(atc.isMobile()){
 }else{
-  alert('你並非使用手機裝置 幹你娘');
+  alert('醒醒吧 你這台不是手機');
   document.location.href="index.php";
 }
 </script>
@@ -43,7 +43,7 @@ a {
 $file=scandir('./exportfile');
 if (empty($file[2])) {
 }else{
-header("Location:index.php?frompage=101");
+header("Location:index.php");
 }
 ?>
 <form method="POST" action="">
@@ -57,7 +57,7 @@ header("Location:index.php?frompage=101");
 </form></td>
 </tr>
 </table>
- <form method="POST" action="--WEBBOT-SELF--"><p>
+ <form method="POST" action=""><p>
  <select size="1" name="D1">
  <option selected>Coming soon</option>
  </select></p>
@@ -76,7 +76,7 @@ while($y > 0){
 if(is_file($path.$y."_Ticket.php")){
 include ($path.$y."_Ticket.php");
 $s++;
-echo "<form method=POST action=><fieldset style=padding: 1><legend>".$Calldate."</legend>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</fieldset></form>";
+echo "<form method=POST action=><fieldset style=padding: 1><legend><font color=#FF0000>".$Calldate."</font></legend><font color=#FF0000>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</font></fieldset></form>";
 }
 $y--;
 }
@@ -97,7 +97,7 @@ while($y > 0){
 if(is_file($path.$y."_processed.php")){
 include ($path.$y."_processed.php");
 $s++;
-echo "<form method=POST action=><fieldset style=padding: 1><legend>".$Calldate."</legend>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</fieldset></form>";
+echo "<form method=POST action=><fieldset style=padding: 1><legend><font color=#008000>".$Calldate."</font></legend><legend><font color=#008000>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</font></fieldset></form>";
 }
 $y--;
 }
@@ -118,7 +118,7 @@ while($y > 0){
 if(is_file($path.$y."_planning.php")){
 include ($path.$y."_planning.php");
 $s++;
-echo "<form method=POST action=><fieldset style=padding: 1><legend>".$Calldate."</legend>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</fieldset></form>";
+echo "<form method=POST action=><fieldset style=padding: 1><legend><font color=#808000>".$Calldate."</font></legend><font color=#808000>".$CallNo."&nbsp;&nbsp;".$storeno."&nbsp;&nbsp;".$storename."<br>".$Problem."</font></fieldset></form>";
 }
 $y--;
 }

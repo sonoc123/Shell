@@ -130,7 +130,7 @@ $store21="Tseung Kwan O";
 $store21n="蜆殼將軍澳油站";
 $store21o="S303";
 
-$store22="Fanling";
+$store22="Fanling,";
 $store22n="蜆殼粉嶺油站";
 $store22o="S307";
 
@@ -150,7 +150,7 @@ $store26="Tsing Yi";
 $store26n="蜆殼青衣油站";
 $store26o="S328";
 
-$store27="Fanling North";
+$store27="FANLING NEW TERRITORIES";
 $store27n="蜆殼粉嶺北油站";
 $store27o="S333";
 
@@ -227,6 +227,6 @@ $store45n="蜆殼機場貨運油站";
 $store45o="S822";
 
 $store46="Cheong King Rd";
-$store46n="	蜆殼機場客運油站";
+$store46n="蜆殼機場客運油站";
 $store46o="S833";
 ?>

@@ -6,7 +6,6 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 
 //Create ticket
-$Getfrompage = $_GET[frompage];
 $Getlocalid = $_GET[localid];
 $GetCompleted = $_GET[Completed];
 $Getdeletecall = $_GET[deletecall];
@@ -124,10 +123,6 @@ Startset:
 while($k<=10) {
 $file=scandir('./exportfile');
 if (empty($file[2])) {
-if ($Getfrompage == 101){
-header("Location:mobile.php");
-exit;
-}
 header("refresh:0.3;url=main.php");
 #include_once "main.php";
 #$url = "main.php";  
@@ -138,6 +133,7 @@ header("refresh:0.3;url=main.php");
 exit;
  }
 else {
+echo "<script>alert('You have a new ticket!! :(')</script>";
 $filename=$file[2];
 $filepath=("exportfile/".$filename);
 
@@ -150,7 +146,7 @@ if (false !== ($rst2 = strpos(${$read}, "immediately"))) {
 goto TaskAssgnId;
 }
 }
-echo "<script>alert('Warning：Wrong file input'); location.href = 'index.php';</script>";
+echo "<script>alert('Warning：Wrong file'); location.href = 'index.php';</script>";
 unlink($filepath);
 goto Startset;
 

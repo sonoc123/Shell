@@ -2,7 +2,7 @@
 
 <head>
 
-<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Language" content="zh-tw">
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
