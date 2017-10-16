@@ -53,6 +53,13 @@ a {
     text-decoration:none;
 }
 </style>
+<script>
+Notification.requestPermission(function(status){
+            if(Notification.permission !== status){
+                Notification.permission = status;
+            }
+        });
+</script>
 <body bgcolor="#F6F6F6">
 <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
@@ -121,7 +128,20 @@ $pFileNum=count(glob("$FileDir/*.*"));
 </td></tr></table>
 </form>
     
-</head>
-<body>
+<?php
+$readnumber=file_get_contents("number.txt");
+$readnumber=$readnumber-1;
+$cookie=$_COOKIE["ticket_number"];
+if (isset($_COOKIE["ticket_number"])){
+}else{
+setcookie("ticket_number", $readnumber, time()+3600);
+exit;
+}
+if ($cookie<$readnumber){
+include ("notification.php");
+}
+setcookie("ticket_number", $readnumber, time()+3600);
+?>
+
 </body>
 </html>

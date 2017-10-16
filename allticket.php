@@ -77,22 +77,60 @@ exit;
   </tr>
 </table>
 <?php
+$FileDir="allticket"; 
+$data_nums=count(glob("$FileDir/*.*"));
 $readnumber=file_get_contents("number.txt");
+$per = 50;//每頁顯示項目數量
+$pages = ceil($data_nums/$per); //取得不小於值的下一個整數
+if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
+$page=1; //則在此設定起始頁數
+} else {
+$page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+}
+$end = ($page)*$per; //每一頁開始的資料序號
+$start = ($end-$per+1);
+?>
+<?php
+//輸出資料內容
 $path ="./allticket/";
 $y=$readnumber;
-$s=0;
-while($y > 0){
+$sv=0;
+while($sv < $end){
 if(is_file($path.$y."_Ticket.php")){
+$sv++;
+if ($sv >= $start){
 include ($path.$y."_Ticket.php");
-$s++;
-if($s%2==0){
-$boby=str_replace ("B0E0E6", "FFDAB9", $boby);
+$color++;
+if($color%2==0){
+$boby=str_replace ("B0E0E6", "678295", $boby);
+}else{
+$boby=str_replace ("B0E0E6", "6495ED", $boby);
 }
 echo $boby;
+}
+}
+if ($y == 0){
+$sv=$end+1;
 }
 $y--;
 }
 ?>
-</body>
+<?php
+//分頁頁碼
+$nextpage=$page+1;
+$backpage=$page-1;
+echo 'Total '.$data_nums.'# '.$page.'-'.$pages.' Page';
+echo "<br><a href=?page=1>|<</a>&nbsp;&nbsp;";
+echo "<a href=?page=".$backpage."><<<</a>&nbsp;&nbsp;";
+for( $i=1 ; $i<=$pages ; $i++ ) {
+if ( $page-3 < $i && $i < $page+3 ) {
+echo "<a href=?page=".$i.">".$i."</a> ";
+echo "&nbsp;";
+}
+} 
+echo "&nbsp;<a href=?page=".$nextpage.">>>></a>&nbsp;&nbsp";
+echo "<a href=?page=".$pages.">>|</a><br /><br />";
+?>
 
+</body>
 </html>

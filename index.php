@@ -20,9 +20,7 @@ $processed=($Getlocalid."_Ticket.php");
 copy("./newticket/".$processed,"./processed/".$Getlocalid."_processed.php");
 $removeNewTicket=("./newticket/".$processed);
 unlink($removeNewTicket);
-include_once "./closedticket/".$Getlocalid."_Closed.php";
-include_once "./processed/".$Getlocalid."_processed.php";
-include_once "./planning/".$Getlocalid."_planning.php";
+include_once "./allticket/".$Getlocalid."_Ticket.php";
 $date=date("Y-m-d");
 $value=($value.$date.$value2."136".$value3);
 $value2="";
@@ -61,7 +59,8 @@ unlink($removeTicket2);
 //Reopen ticket
 if ($Getreopen >= 1){
 $reopenticket=($Getreopen."_planning.php");
-$reopenticket2=($Getreopen."_Closed.php");
+$reopenticket2=glob("./closedticket/*_".$Getreopen."_*");
+$reopenticket2=($reopenticket2[0]);
 copy("./planning/".$reopenticket,"./processed/".$Getreopen."_processed.php");
 copy("./closedticket/".$reopenticket2,"./processed/".$Getreopen."_processed.php");
 $removeTicket=("./planning/".$reopenticket);
@@ -71,10 +70,7 @@ unlink($removeTicket2);
 }
 //Transport ticket
 if ($Gettransport >= 1){
-include_once "./newticket/".$Gettransport."_Ticket.php";
-include_once "./closedticket/".$Gettransport."_Closed.php";
-include_once "./processed/".$Gettransport."_processed.php";
-include_once "./planning/".$Gettransport."_planning.php";
+include_once "./allticket/".$Gettransport."_Ticket.php";
 $date=date("Y-m-d");
 $value3=str_replace ($Problem, "Collect", $value3);
 $value3=str_replace ($CallNo, $CallNo."-1", $value3);
@@ -94,10 +90,7 @@ $GetDetail=$POSTDetail;
 }
 //Detail
 if ($GetDetail >= 1){
-include_once "./newticket/".$GetDetail."_Ticket.php";
-include_once "./closedticket/".$GetDetail."_Closed.php";
-include_once "./processed/".$GetDetail."_processed.php";
-include_once "./planning/".$GetDetail."_planning.php";
+include_once "./allticket/".$GetDetail."_Ticket.php";
 include_once "./detail.php";
 exit;
 }
@@ -133,7 +126,6 @@ header("refresh:0.3;url=main.php");
 exit;
  }
 else {
-echo "<script>alert('You have a new ticket!! :(')</script>";
 $filename=$file[2];
 $filepath=("exportfile/".$filename);
 

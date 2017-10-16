@@ -36,9 +36,9 @@ $name= mb_convert_encoding($name, "UTF-8", "auto");
 $Completicket=($GetCompleted."_Ticket.php");
 $Completicket2=($GetCompleted."_processed.php");
 $Completicket3=($GetCompleted."_planning.php");
-copy("./newticket/".$Completicket,"./closedticket/".$GetCompleted."_Closed.php");
-copy("./processed/".$Completicket2,"./closedticket/".$GetCompleted."_Closed.php");
-copy("./planning/".$Completicket3,"./closedticket/".$GetCompleted."_Closed.php");
+copy("./newticket/".$Completicket,"./closedticket/".date("Ymd")."_".$GetCompleted."_Closed.php");
+copy("./processed/".$Completicket2,"./closedticket/".date("Ymd")."_".$GetCompleted."_Closed.php");
+copy("./planning/".$Completicket3,"./closedticket/".date("Ymd")."_".$GetCompleted."_Closed.php");
 $removeTicket=("./newticket/".$Completicket);
 $removeTicket2=("./processed/".$Completicket2);
 $removeTicket3=("./planning/".$Completicket3);
@@ -117,58 +117,6 @@ exitfor:
 <form action="mailto:<?php echo $email;?>?subject=<?php echo ("RE: Service Ticket with Attachment (".$Task.")");?>
 &cc=atlsupport@asialandtech.com;ken.li.ext@dieboldnixdorf.com" method="post" enctype="text/plain">
 <p align="center"> <input type="submit" value="2. Send from email " /></p>
-<!-- <TEXTAREA NAME="Close Shell" ROWS="1" COLS="1"> -->
-<?php
-if ($notuse > 1){
-echo ($Task);
-echo ('%0d%0a');
-echo ("CSR no : NIL");
-echo ('%0d%0a');
-echo ("Site Name : ".$sstore);
-echo ('%0d%0a');
-echo ("Status : ".$status);
-echo ('%0d%0a');
-echo ("CE Name: ".$ce);
-echo ('%0d%0a');
-echo ("Travel Date/Time : ".$tafd." ".$tdt);
-echo ('%0d%0a');
-echo ("Arrival Date/Time : ".$tafd." ".$adt);
-echo ('%0d%0a');
-echo ("Fix Date/Time : ".$tafd." ".$fdt);
-echo ('%0d%0a');
-echo ("Site Signatory Name : ".$name);
-echo ('%0d%0a');
-echo ("Affected hardware/software : ".$Problem);
-echo ('%0d%0a');
-echo ("Resolution Detail : ".$detail);
-echo ('%0d%0a');
-echo ('%0d%0a');
-echo ("Parts sn: N/A");
-echo ('%0d%0a');
-echo ("FST s/n: N/A");
-echo ('%0d%0a');
-echo ('Parts no.&Name:N/A');
-echo ('%0d%0a');
-echo ("Follow Up Required?:No");
-echo ('%0d%0a');
-echo ("Next DT Appointment :N/A");
-echo ('%0d%0a');
-echo ("Pending Part?:N/A");
-echo ('%0d%0a');
-echo ("Pending Part Name:N/A");
-echo ('%0d%0a');
-echo ("Security Check:Done");
-echo ('%0d%0a');
-echo ('%0d%0a');
-echo ("Thanks");
-echo ('%0d%0a');
-echo ('%0d%0a');
-echo ("Best Regards,");
-echo ('%0d%0a');
-echo ("ATL support");
-}
-?>
-<!-- </TEXTAREA> -->
 </form>
 <p align="center"><input onclick="window.close();" value="3. Close window" type="button">
 

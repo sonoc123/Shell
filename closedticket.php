@@ -72,65 +72,34 @@ exit;
     <font face="Arial" size="2" color="#FFFFFF">Site Name</font></b></td>
     <td width="30%" align="center" bgcolor="#274358" bordercolor="#FFFFFF"><b>
     <font face="Arial" size="2" color="#FFFFFF">Affected hardware</font></b></td>
-  <form method="get" action="">
-    <td width="8%" align="center" bgcolor="#274358" bordercolor="#FFFFFF">
-  <input type="submit" name="functionmode" value="transport" style="width:80;height:20; font-size:8 pt"></td>
+    <form method="get" action="">    <td width="8%" align="center" bgcolor="#274358" bordercolor="#FFFFFF">
     <td width="7%" align="center" bgcolor="#274358" bordercolor="#FFFFFF">
-  <input type="submit" name="functionmode" value="reopen" style="width:80;height:20; font-size:8 pt"></td></form>
-	<td width="5%" align="center" bgcolor="#274358" bordercolor="#FFFFFF">&nbsp;</td>
+    <td width="5%" align="center" bgcolor="#274358" bordercolor="#FFFFFF">&nbsp;</td>
   </tr>
 </table>
 <?php
-$Getfunctionmode = $_GET[functionmode];
-$readnumber=file_get_contents("number.txt");
-$path ="./closedticket/";
-$y=$readnumber;
-$s=0;
-if (preg_match("/reopen/i", $Getfunctionmode)){
-while($y > 0){
-if(is_file($path.$y."_Closed.php")){
-include ($path.$y."_Closed.php");
-$s++;
-if($s%2==0){
-$boby=str_replace ("B0E0E6", "FFDAB9", $boby);
-}
-$boby=str_replace ("Close", "Reopen", $boby);
-$boby=str_replace ("Completed", "reopen", $boby);
-echo $boby;
-}
-$y--;
-}
-}
-
-if (preg_match("/transport/i", $Getfunctionmode)){
-while($y > 0){
-if(is_file($path.$y."_Closed.php")){
-include ($path.$y."_Closed.php");
-$s++;
-if($s%2==0){
-$boby=str_replace ("B0E0E6", "FFDAB9", $boby);
-}
-$boby=str_replace ("Create Call", "Transport", $boby);
-$boby=str_replace ("localid", "transport", $boby);
-echo $boby;
-}
-$y--;
-}
-}
-
-if (preg_match("/nomatch/i", $Getfunctionmode)){
+$color=1;
+$day=0;
+$date=date("Ymd");
+while($date > 20170901){
+$file=glob("./closedticket/".$date."_*");
+if (empty($file)) {
 }else{
-while($y > 0){
-if(is_file($path.$y."_Closed.php")){
-include ($path.$y."_Closed.php");
-$s++;
-if($s%2==0){
-$boby=str_replace ("B0E0E6", "FFDAB9", $boby);
+echo "<table border=1 cellpadding=0 cellspacing=0 style=border-collapse: collapse bordercolor=#111111 width=100%><tr><td width=100% bordercolor=#000000 bgcolor=#C0C0C0><p align=center>Closed on ".$date."</td></tr></table>";
+$i=count($file);
+for ( $s=0 ; $s<$i ; $s++ ) {
+include ($file[$s]);
+if($color%2==0){
+$boby=str_replace ("B0E0E6", "678295", $boby);
+}else{
+$boby=str_replace ("B0E0E6", "6495ED", $boby);
 }
 echo $boby;
+$color++;
 }
-$y--;
 }
+$day++;
+$date=date("Ymd", strtotime("-".$day." day"));
 }
 ?>
 </body>
